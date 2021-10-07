@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
-from django.http import HttpResponse
-
+from .import models
 
 def index(request):
-    return HttpResponse("Hello, yusriyanti.")
+    if request.POST:
+        models.uhuy.objects.create(name=request.POST['name'])
+
+    tasks = models.uhuy.objects.all()
+    return render(request, "index.html",{"data" : tasks})

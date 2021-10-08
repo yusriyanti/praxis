@@ -7,51 +7,40 @@
     <title>Document</title>
 </head>
 <body>
-    
-</body>
-</html>
-<h1>
-    Selamat Datang di AdinMuhammadTV
-</h1>
-<body>
   
 
-<p>Login</p>
+  <form action=""method="POST">
+    {%csrf_token%}
 
-<form action=""method="post">
-  {% csrf_token %}
-    <input type="text" name="name">
-    <button type="submit">simpan</button>
-</form>
+    <input type="text" nama ="nama" class="form-control">
+    <button type="submit" class="btn btn-primary">pencarian</button>
+  </form>
 
-<form>
-    <head>
-        <style>
-        th, td {
-          border: 1px solid black;
-        }
-        </style>
-        </head>
-        <body>
-        
-        <h2>Table yusri </h2>
-        
-        <p>peserta lolos seleksi</p>
-        
-        <table style="width:50%">
-          <tr>
-              <th>Nama lengkap</th>
-              <th>umur</th>
-          </tr>
-          {% for d in data %} 
-          <tr>
-            <td>{{d.name}}</td>
-            <td>Kosong</td>
-          </tr>
-          {% endfor %}
-            <!-- <th>Durasi video</th> -->
-          </tr>
-        </table>
-      </form>
-      
-    </body>
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>NO</th>
+          <th>NAMA</th>
+          <th>ACTIONS</th>
+        </tr>
+        {% for d in data %}
+        <tr>
+          <td>{{d.id}}</td>
+          <td>{{d.nama}}</td>
+          <td>
+            <a href="detail/{{d.id}}" class="btn-success">view</a>
+            <a href="edit/{{d.id}}" class="btn-success">Edit</a>
+            <a href="hapus/{{d.id}}" class="btn-success">Delete</a>
+
+          </td>
+
+        </tr>
+        {% endfor %}
+      </thead>
+
+    </table>
+  </div>
+</body>
+
+  

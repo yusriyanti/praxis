@@ -1,5 +1,5 @@
 from django.db import models
-class uhuy(models.Model):
-    name = models.TextField()
+class tugas(models.Model):
+    nama = models.TextField(max_length=200)
 
 # Create your models here.
